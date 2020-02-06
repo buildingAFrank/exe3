@@ -500,6 +500,7 @@ nav a:hover {
 ------------------------------------------------------------------------------------*/
 main section .global {
   background-color: white;
+  border: 1px black solid;
 }
 
 .container {
@@ -561,6 +562,10 @@ main section .global {
 /*------------------------------------------------------------------------------------
 # Footer
 ------------------------------------------------------------------------------------*/
+footer {
+  border: 1px solid darkgrey;
+}
+
 footer .global ul {
   display: -webkit-box;
   display: -ms-flexbox;
