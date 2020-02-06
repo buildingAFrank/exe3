@@ -87,9 +87,6 @@ Par exemple, on peut généraliser la propriété border-radius pour
 l'adapter à plusieurs navigateurs.
 -------------------------------------------------------------------------------- */
 .box {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
   border-radius: 3px;
 }
 
@@ -103,6 +100,7 @@ d'en définir un occasionnellement, vous pouvez créer des paramètres facultati
 div.highlighter-rouge {
   position: relative;
 }
+
 div.highlighter-rouge:before {
   background: #aaa;
   color: rgba(0, 0, 0, 0.5);
@@ -119,9 +117,11 @@ div.highlighter-rouge:before {
   text-transform: uppercase;
   top: 0;
 }
+
 div.highlighter-rouge.css {
   position: relative;
 }
+
 div.highlighter-rouge.css:before {
   background: #0ff;
   color: white;
@@ -138,9 +138,11 @@ div.highlighter-rouge.css:before {
   text-transform: uppercase;
   top: 0;
 }
+
 div.highlighter-rouge.scss {
   position: relative;
 }
+
 div.highlighter-rouge.scss:before {
   background: #c69;
   color: white;
@@ -224,7 +226,7 @@ Voici un exemple
 /* ------------------------------------------------------------------------------ */
 /* Un  @extend permet d'hériter des propriétés CSS d'un autre sélecteur           */
 /* ------------------------------------------------------------------------------ */
-.small-uppercase, .image-pattern, .product-link, .modal-background {
+.small-uppercase, .modal-background, .product-link, .image-pattern {
   color: lightslategrey;
   font-size: 10px;
   letter-spacing: 0.1em;
@@ -233,17 +235,17 @@ Voici un exemple
 }
 
 /*
-.small-uppercase,
-.modal-background,
-.product-link,
-.image-pattern{
-  color: lightslategrey;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  line-height: 12px;
-  text-transform: uppercase;
-}
-*/
+  .small-uppercase,
+  .modal-background,
+  .product-link,
+  .image-pattern{
+    color: lightslategrey;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    line-height: 12px;
+    text-transform: uppercase;
+  }
+  */
 /* ---------------------------------------------------------------------------- */
 /* Différence avec les mixins                                                   */
 /* ---------------------------------------------------------------------------- */
@@ -261,7 +263,7 @@ communes qu'une seule fois.
 On peut optimiser @extend avec un «placeholder»
 en précédent notre extension avec «%»
 */
-.image-pattern, .product-link, .modal-background {
+.modal-background, .product-link, .image-pattern {
   color: lightslategrey;
   font-size: 10px;
   letter-spacing: 0.1em;
@@ -297,7 +299,7 @@ body {
 }
 
 .entete {
-  background-color: #99394f;
+  background-color: #ab4058;
 }
 
 nav {
@@ -316,27 +318,40 @@ footer {
 # entete
 ------------------------------------------------------------------------------------*/
 .entete {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row nowrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
   height: 20vh;
   width: 100%;
 }
+
 .entete .legend {
   margin-left: 10px;
-  flex: 0 1 50%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
 }
+
 .entete h1 {
   font-size: 4em;
 }
+
 .entete h2 {
   margin-left: 10px;
   font-size: 2em;
 }
 
 .rechercher {
-  flex: 0 0 50%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
   overflow: hidden;
 }
+
 .rechercher .textInput {
   width: 98%;
   height: 2em;
@@ -344,33 +359,43 @@ footer {
   border-radius: 20px;
   outline: none;
   padding-left: 10px;
-  transition: all 0.5s linear 0.1s;
+  -webkit-transition: all .5s linear .1s;
+  transition: all .5s linear .1s;
 }
+
 .rechercher .textInput:focus {
   border-top: 1px #290f15 solid;
   border-right: 1px pink solid;
   border-bottom: 1px pink solid;
   border-left: 1px #290f15 solid;
 }
-.rechercher label[for=recherche] {
+
+.rechercher label[for="recherche"] {
   margin-left: 95%;
   cursor: pointer;
-  transition: all 0.1s linear 0.1s;
+  -webkit-transition: all .1s linear .1s;
+  transition: all .1s linear .1s;
 }
-.rechercher label[for=recherche] .fas {
+
+.rechercher label[for="recherche"] .fas {
   font-size: 1.4em;
   transition-origin: 50% 50%;
-  transition: font-size 0.1s linear;
+  -webkit-transition: font-size .1s linear;
+  transition: font-size .1s linear;
 }
-.rechercher #recherche:checked ~ label[for=recherche] {
+
+.rechercher #recherche:checked ~ label[for="recherche"] {
   width: 0;
 }
-.rechercher #recherche:checked ~ label[for=recherche] .fas {
+
+.rechercher #recherche:checked ~ label[for="recherche"] .fas {
   font-size: 0;
 }
+
 .rechercher #recherche:checked ~ .textInput {
   display: block;
 }
+
 .rechercher > * {
   vertical-align: bottom;
   display: inline-block;
@@ -382,25 +407,39 @@ footer {
 nav {
   width: 100%;
 }
+
 nav #plus {
   display: none;
 }
+
 nav .fas {
   display: none;
   color: pink;
   font-size: 1.4em;
 }
+
 nav .nav-menu {
   height: 50px;
   list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-end;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 nav .nav-menu li:last-child {
   padding-right: 25px;
 }
+
 nav a {
   text-decoration: none;
   color: white;
@@ -408,17 +447,24 @@ nav a {
   padding-bottom: 17px;
   height: 20px;
 }
+
 nav a:hover {
   background-color: #612432;
 }
+
 @media screen and (min-width: 320px) and (max-width: 719px) {
   nav .nav-menu {
     display: none;
     background-color: #290f15;
-    flex-flow: row wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
   }
   nav .nav-menu li {
-    flex: 1 0 100%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 100%;
+            flex: 1 0 100%;
     padding: 0;
     background-color: #290f15;
   }
@@ -442,6 +488,8 @@ nav a:hover {
     cursor: pointer;
   }
   nav #plus:checked ~ .nav-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     position: absolute;
   }
@@ -456,36 +504,57 @@ main section .global {
 
 .container {
   background-color: #cccccc;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 15px;
   width: 1170px;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row nowrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
 }
+
 .container p {
-  flex: 0 1 45%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 45%;
+          flex: 0 1 45%;
   padding: 15px;
   margin: 15px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background-color: #999999;
 }
+
 .container p:nth-child(odd) {
   background-color: #cccccc;
 }
+
 @media screen and (min-width: 720px) and (max-width: 1169px) {
   .container {
     width: 100%;
-    flex-flow: row wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
   }
 }
+
 @media screen and (min-width: 320px) and (max-width: 719px) {
   .container {
     width: 100%;
-    flex-flow: row wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
   }
   .container p {
-    flex: 1 1 auto;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
   }
 }
 
@@ -493,32 +562,51 @@ main section .global {
 # Footer
 ------------------------------------------------------------------------------------*/
 footer .global ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: white;
   list-style: none;
 }
+
 footer .global ul li {
-  flex: 1 0 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 100%;
+          flex: 1 0 100%;
   height: 50px;
   display: block;
   padding: 15px;
 }
+
 @media screen and (min-width: 720px) {
   footer .global ul {
     padding-top: 15px;
-    flex-flow: row nowrap;
-    justify-content: space-around;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
   }
   footer .global ul li {
     display: inline;
-    flex: 1 1 25%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 25%;
+            flex: 1 1 25%;
     padding: 0;
     text-align: center;
   }
 }
-
 /*# sourceMappingURL=style.css.map */
