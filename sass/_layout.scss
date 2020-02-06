@@ -1,0 +1,29 @@
+*{
+    padding:0;
+    margin:0;
+}
+body {
+    width:100%;
+    min-height:100vh;
+}
+
+.entete, main, footer{
+    width:100%;
+}
+
+.entete{
+    background-color: lighten($clr_rouge, 15%);
+
+}
+
+nav{
+    background-color: darken($clr_rouge, 15%);
+}
+
+main{
+    background-color: $clr_body;
+}
+
+footer{
+    background-color: darken($clr_rouge, 15%);
+}

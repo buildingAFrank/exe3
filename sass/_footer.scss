@@ -1,0 +1,37 @@
+footer{
+    .global{
+        
+        ul{
+            
+            display:flex;
+            flex-flow:column nowrap;
+            justify-content:center;
+            align-content:center;
+            align-items:center;
+            color:white;
+            list-style: none;
+            li{
+                flex:1 0 100%;
+                height:50px;
+                display:block;
+                padding: 15px;
+                
+            }
+        }
+    }
+    @media screen and(min-width:720px){
+        .global{
+            ul{ padding-top:15px;
+                flex-flow:row nowrap;
+                justify-content:space-around;
+                li{
+                    display: inline;
+                    flex:1 1 25%;
+                    padding:0;
+                    text-align:center;
+                }
+            }
+        }
+    }
+}
+

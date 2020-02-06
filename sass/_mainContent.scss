@@ -1,0 +1,35 @@
+main section .global{
+    background-color:$clr_body;
+}
+
+.container{
+    background-color:$clr_main;
+    box-sizing:border-box;
+    padding:15px;
+    width:1170px;
+    margin:auto;
+    display:flex;
+    flex-flow:row nowrap;
+    p{
+        flex:0 1 45%;
+        padding:15px;
+        margin:15px;
+        box-sizing:border-box;
+        background-color:$clr_background;
+        &:nth-child(odd){
+            background-color:$clr_main;
+        }
+    }
+    @media screen and(min-width:720px) and(max-width:1169px){
+        width:100%;
+        flex-flow:row wrap;
+    }
+    @media screen and(min-width:320px) and(max-width:719px){
+        width:100%;
+        flex-flow:row wrap;
+        p{
+            flex: 1 1 auto;
+        }
+    }
+    
+}
