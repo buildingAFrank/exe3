@@ -21,9 +21,9 @@ nav{
 }
 
 main{
-    background-color: $clr_body;
+    background-color: ligthen($clr_body, 15%);
 }
 
 footer{
-    background-color: darken($clr_rouge, 15%);
+    background-color: darken($clr_rouge, 25%);
 }

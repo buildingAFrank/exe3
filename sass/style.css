@@ -307,11 +307,11 @@ nav {
 }
 
 main {
-  background-color: white;
+  background-color: ligthen(white, 15%);
 }
 
 footer {
-  background-color: #290f15;
+  background-color: #040102;
 }
 
 /*------------------------------------------------------------------------------------
